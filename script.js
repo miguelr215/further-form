@@ -29,11 +29,37 @@ document.getElementById("furtherForm").addEventListener("submit", async function
     const data = await response.json();
     
     if (data.status === 'success') {
-        document.getElementById("formResult").textContent = 'Thank you for your submission!';
-        document.getElementById("formResult").classList.add('success');
+        document.getElementById("formResult").style.display = 'block';
+        document.getElementById("formResult").style.opacity = '1';
+        document.getElementById("formResultCopy").style.display = 'block';
+        document.getElementById("formResultCopy").style.opacity = '1';
+        document.getElementById("formResultCopy").textContent = 'Thank you for your submission!';
+        document.getElementById("formResultCopy").classList.add('success');
+        document.getElementById("firstName").value = '';
+        document.getElementById("lastName").value = '';
+        document.getElementById("email").value = '';
+        document.getElementById("phone").value = '';
+        document.getElementById("formHeader").style.display = 'none';
+        document.getElementById("formBody").style.display = 'none';
+        document.getElementById("formFooter").style.display = 'none';
     }
   } catch (error) {
-    document.getElementById("formResult").textContent = "Error: " + error.message;
-    document.getElementById("formResult").classList.add('error');
+    document.getElementById("formResult").style.display = 'block';
+    document.getElementById("formResult").style.opacity = '1';
+    document.getElementById("formResultCopy").style.display = 'block';
+    document.getElementById("formResultCopy").style.opacity = '1';
+    document.getElementById("formResultCopy").textContent = "Error: " + error.message;
+    document.getElementById("formResultCopy").classList.add('error');
   }
 });
+
+document.getElementById("backToFormBtn").addEventListener("click", function() {
+    document.getElementById("formHeader").style.display = 'block';
+    document.getElementById("formBody").style.display = 'block';
+    document.getElementById("formFooter").style.display = 'block';
+    document.getElementById("formResult").style.display = 'none';
+    document.getElementById("formResult").style.opacity = '0';
+    document.getElementById("formResultCopy").style.display = 'none';
+    document.getElementById("formResultCopy").style.opacity = '0';
+
+})

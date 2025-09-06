@@ -129,13 +129,15 @@ form {
     transition: all 0.3s ease;
 }
 
-.form-footer button:hover {
+.form-footer button:hover,
+.form-result button:hover {
     background: var(--highlight-hover);
     transform: translate(-1px, -1px);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.form-footer button:active {
+.form-footer button:active,
+.form-result button:active {
     background: var(--highlight-color);
     transform: translate(0, 0);
     box-shadow: none;
@@ -157,25 +159,45 @@ form {
     text-decoration: none;
 }
 
-.form-result {
+.form-result,
+.form-result-copy {
     display: none;
     opacity: 0;
-    font-size: 1rem;
-    color: white;
-    border-radius: var(--reg-border-radius);
-    padding: 0.5rem;
-    margin-bottom: 1rem;
     transition: all 0.5s ease;
 }
 
-.form-result.success {
+.form-result-copy {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    border-radius: var(--reg-border-radius);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+.form-result-copy.success {
     background-color: var(--highlight-color);
+}
+.form-result-copy.error {
+    background-color: rgb(183, 12, 12);
+}
+
+.form-result .form-result-copy.success,
+.form-result .form-result-copy.error {
     display: block;
     opacity: 1;
 }
 
-.form-result.error {
-    background-color: rgb(183, 12, 12);
+.form-result button {
+    background: var(--highlight-color);
+    border-radius: var(--reg-border-radius);
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: block;
-    opacity: 1;
+    margin: 1.5rem auto;
 }

@@ -32,8 +32,11 @@
     <main>
         <h1>Sign Up Form</h1>
         <form id="furtherForm" action="https://hooks.zapier.com/hooks/catch/24505746/ud1lms5/" method="POST">
-            <p class="form-result" id="formResult"></p>
-            <div class="form-header">
+            <div class="form-result" id="formResult">
+                <p class="form-result-copy" id="formResultCopy"></p>
+                <button type="button" id="backToFormBtn">Back to Sign Up Form</button>
+            </div>
+            <div class="form-header" id="formHeader">
                 <div class="form-title">
                     <span class="icon-wrapper">
                         <i class="bi bi-rocket-takeoff"></i>
@@ -48,7 +51,7 @@
                     Join to get personalized senior living advice on healthcare, housing, financing and more.
                 </p>
             </div>
-            <div class="form-body">
+            <div class="form-body" id="formBody">
                 <div class="form-group">
                     <input type="text" id="firstName" name="firstName" placeholder=" " required>
                     <label for="firstName">First Name</label>
@@ -66,7 +69,7 @@
                     <label for="phone">Phone Number</label>
                 </div>
             </div>
-            <div class="form-footer">
+            <div class="form-footer" id="formFooter">
                 <button type="submit">Sign Up</button>
                 <p class="form-disclaimer">
                     By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
