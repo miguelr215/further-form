@@ -5,11 +5,9 @@ document.getElementById("furtherForm").addEventListener("submit", async function
   // Gather form data and convert to plain object
   const formData = new FormData(form);
   const plainObject = Object.fromEntries(formData.entries());
-  console.log('plain ob:', plainObject);
 
   // Convert to JSON string
   const jsonString = JSON.stringify(plainObject);
-  console.log('json str:', jsonString);
 
   try {
     // Send POST as JSON
@@ -29,12 +27,14 @@ document.getElementById("furtherForm").addEventListener("submit", async function
     const data = await response.json();
     
     if (data.status === 'success') {
-        document.getElementById("formResult").style.display = 'block';
-        document.getElementById("formResult").style.opacity = '1';
-        document.getElementById("formResultCopy").style.display = 'block';
-        document.getElementById("formResultCopy").style.opacity = '1';
-        document.getElementById("formResultCopy").textContent = 'Thank you for your submission!';
-        document.getElementById("formResultCopy").classList.add('success');
+        const formResult = document.getElementById("formResult");
+        const formResultCopy = document.getElementById("formResultCopy");
+        formResult.style.display = 'block';
+        formResult.style.opacity = '1';
+        formResultCopy.style.display = 'block';
+        formResultCopy.style.opacity = '1';
+        formResultCopy.textContent = 'Thank you for your submission!';
+        formResultCopy.classList.add('success');
         document.getElementById("firstName").value = '';
         document.getElementById("lastName").value = '';
         document.getElementById("email").value = '';
@@ -44,22 +44,26 @@ document.getElementById("furtherForm").addEventListener("submit", async function
         document.getElementById("formFooter").style.display = 'none';
     }
   } catch (error) {
-    document.getElementById("formResult").style.display = 'block';
-    document.getElementById("formResult").style.opacity = '1';
-    document.getElementById("formResultCopy").style.display = 'block';
-    document.getElementById("formResultCopy").style.opacity = '1';
-    document.getElementById("formResultCopy").textContent = "Error: " + error.message;
-    document.getElementById("formResultCopy").classList.add('error');
+    const formResult = document.getElementById("formResult");
+    const formResultCopy = document.getElementById("formResultCopy");
+    formResult.style.display = 'block';
+    formResult.style.opacity = '1';
+    formResultCopy.style.display = 'block';
+    formResultCopy.style.opacity = '1';
+    formResultCopy.textContent = "Error: " + error.message;
+    formResultCopy.classList.add('error');
   }
 });
 
 document.getElementById("backToFormBtn").addEventListener("click", function() {
+    const formResult = document.getElementById("formResult");
+    const formResultCopy = document.getElementById("formResultCopy");
     document.getElementById("formHeader").style.display = 'block';
     document.getElementById("formBody").style.display = 'block';
     document.getElementById("formFooter").style.display = 'block';
-    document.getElementById("formResult").style.display = 'none';
-    document.getElementById("formResult").style.opacity = '0';
-    document.getElementById("formResultCopy").style.display = 'none';
-    document.getElementById("formResultCopy").style.opacity = '0';
+    formResult.style.display = 'none';
+    formResult.style.opacity = '0';
+    formResultCopy.style.display = 'none';
+    formResultCopy.style.opacity = '0';
 
 })
