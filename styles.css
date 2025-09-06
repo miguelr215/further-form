@@ -156,3 +156,26 @@ form {
     color: var(--highlight-color);
     text-decoration: none;
 }
+
+.form-result {
+    display: none;
+    opacity: 0;
+    font-size: 1rem;
+    color: white;
+    border-radius: var(--reg-border-radius);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease;
+}
+
+.form-result.success {
+    background-color: var(--highlight-color);
+    display: block;
+    opacity: 1;
+}
+
+.form-result.error {
+    background-color: rgb(183, 12, 12);
+    display: block;
+    opacity: 1;
+}
