@@ -58,12 +58,12 @@ document.getElementById("furtherForm").addEventListener("submit", async function
 document.getElementById("backToFormBtn").addEventListener("click", function() {
     const formResult = document.getElementById("formResult");
     const formResultCopy = document.getElementById("formResultCopy");
-    document.getElementById("formHeader").style.display = 'block';
-    document.getElementById("formBody").style.display = 'block';
-    document.getElementById("formFooter").style.display = 'block';
     formResult.style.display = 'none';
     formResult.style.opacity = '0';
     formResultCopy.style.display = 'none';
     formResultCopy.style.opacity = '0';
+    document.getElementById("formHeader").style.display = 'block';
+    document.getElementById("formBody").style.display = 'block';
+    document.getElementById("formFooter").style.display = 'block';
 
 })
