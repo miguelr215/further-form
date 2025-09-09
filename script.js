@@ -1,3 +1,9 @@
+const formResult = document.getElementById("formResult");
+const formResultCopy = document.getElementById("formResultCopy");
+const formHeader = document.getElementById("formHeader");
+const formBody = document.getElementById("formBody");
+const formFooter = document.getElementById("formFooter");
+
 document.getElementById("furtherForm").addEventListener("submit", async function(event) {
   event.preventDefault();
 
@@ -27,8 +33,6 @@ document.getElementById("furtherForm").addEventListener("submit", async function
     const data = await response.json();
     
     if (data.status === 'success') {
-        const formResult = document.getElementById("formResult");
-        const formResultCopy = document.getElementById("formResultCopy");
         formResult.style.display = 'block';
         formResult.style.opacity = '1';
         formResultCopy.style.display = 'block';
@@ -39,31 +43,30 @@ document.getElementById("furtherForm").addEventListener("submit", async function
         document.getElementById("lastName").value = '';
         document.getElementById("email").value = '';
         document.getElementById("phone").value = '';
-        document.getElementById("formHeader").style.display = 'none';
-        document.getElementById("formBody").style.display = 'none';
-        document.getElementById("formFooter").style.display = 'none';
+        formHeader.style.display = 'none';
+        formBody.style.display = 'none';
+        formFooter.style.display = 'none';
     }
   } catch (error) {
-    const formResult = document.getElementById("formResult");
-    const formResultCopy = document.getElementById("formResultCopy");
     formResult.style.display = 'block';
     formResult.style.opacity = '1';
     formResultCopy.style.display = 'block';
     formResultCopy.style.opacity = '1';
     formResultCopy.textContent = "Error: " + error.message;
     formResultCopy.classList.add('error');
+    formHeader.style.display = 'none';
+    formBody.style.display = 'none';
+    formFooter.style.display = 'none';
   }
 });
 
 document.getElementById("backToFormBtn").addEventListener("click", function() {
-    const formResult = document.getElementById("formResult");
-    const formResultCopy = document.getElementById("formResultCopy");
     formResult.style.display = 'none';
     formResult.style.opacity = '0';
     formResultCopy.style.display = 'none';
     formResultCopy.style.opacity = '0';
-    document.getElementById("formHeader").style.display = 'block';
-    document.getElementById("formBody").style.display = 'block';
-    document.getElementById("formFooter").style.display = 'block';
+    formHeader.style.display = 'block';
+    formBody.style.display = 'block';
+    formFooter.style.display = 'block';
 
 })
